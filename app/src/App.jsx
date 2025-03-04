@@ -21,16 +21,12 @@ const App = () => {
     e.preventDefault();
     const input = document.querySelector('#searchInput');
     const temp = input.value;
-
-    // clear the value from the box
-    input.value = '';
-    // pass in new prop so gifsContainer rerenders
-    setSearchTerm(temp);
+    
+    input.value = ''; // clear the value from the box
+    setSearchTerm(temp); // pass in new prop so gifsContainer rerenders
   }
 
-  const handleInput = (searchTerm) => {
-    setSearchTerm(searchTerm);
-  }
+  const handleInput = (searchTerm) => { setSearchTerm(searchTerm); }
 
   return (
     <div>

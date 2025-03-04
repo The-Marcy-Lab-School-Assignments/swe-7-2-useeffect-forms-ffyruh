@@ -21,11 +21,8 @@ const GifContainer = ({ searchTerm }) => {
       if (searchTerm === '') gifs = await getTrendingGifs();
       else gifs = await getGifsBySearch(searchTerm);
 
-      if (!gifs) {
-        setGifsArr(defaultGifs);
-      } else {
-        setGifsArr(gifs.data);
-      }
+      if (!gifs) setGifsArr(defaultGifs);
+      else setGifsArr(gifs.data);
     };
     fetchGifs();
   }, [searchTerm]);
