@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <div>
-      <NavBar color="black" title="Giphy Search" />
+      <NavBar color="black" title="Search" id='nav-bar' />
       <div className="ui container">
         <GifSearch
           handleSubmit={handleSubmit}

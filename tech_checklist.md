@@ -22,4 +22,4 @@ Your goal is to meet at least 75% of these requirements to complete the assignme
 **Miscellaneous**
 - [x] The `config.js` file is listed in the `.gitignore` and is NOT included in the final repository.
 - [x] At no point did you ever use any vanilla DOM JS methods (e.g. `document.querySelector` or `document.createElement`)
-- [ ] Bonus: Display the gifs as a grid using flexbox or grid!
+- [x] Bonus: Display the gifs as a grid using flexbox or grid!

@@ -9,6 +9,7 @@ TODO:
 */
 
 import { useState, useEffect } from 'react';
+import '../App.css';
 
 import defaultGifs from '../gifs.json';
 import { getGifsBySearch, getTrendingGifs } from '../adapters/giphyAdapters';
@@ -29,6 +30,7 @@ const GifContainer = ({ searchTerm }) => {
 
 
   return (
+    <div className='ul-container'>
       <ul>
         {
           (gifsArr !== defaultGifs) ? <></>
@@ -41,15 +43,14 @@ const GifContainer = ({ searchTerm }) => {
             ? 'loading'
             : gifsArr.map((v) => {
                 return (
-                  <>
-                    <li key={`gif-${crypto.randomUUID()}`}>
-                      <img src={v.images.original.url} />
-                    </li>
-                  </>
+                  <li key={`gif-${crypto.randomUUID()}`}>
+                    <img src={v.images.original.url} />
+                  </li>
                 )
               })
         }
       </ul>
+    </div>
   )
 }
 
