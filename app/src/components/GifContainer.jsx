@@ -8,15 +8,52 @@ TODO:
 - Bonus: if at any point an error is returned, render the default gifs again.
 */
 
+import { useState, useEffect } from 'react';
+
 import defaultGifs from '../gifs.json';
 import { getGifsBySearch, getTrendingGifs } from '../adapters/giphyAdapters';
 
-const GifContainer = () => {
-    return (
-        <ul>
+const GifContainer = ({ searchTerm }) => {
+  const [gifsArr, setGifsArr] = useState([]);
+  useEffect(() => {
+    const fetchGifs = async () => {
+      let gifs;
+      if (searchTerm === '') gifs = await getTrendingGifs();
+      else gifs = await getGifsBySearch(searchTerm);
 
-        </ul>
-    )
+      if (!gifs) {
+        setGifsArr(defaultGifs);
+      } else {
+        setGifsArr(gifs.data);
+      }
+    };
+    fetchGifs();
+  }, [searchTerm]);
+
+
+  return (
+      <ul>
+        {
+          (gifsArr !== defaultGifs) ? <></>
+          : <li key='errorMsg'>
+              <h1>Sorry, the GIPHY API is not working, but here are some cats</h1>
+            </li>
+        }
+        {
+          (gifsArr.length === 0)
+            ? 'loading'
+            : gifsArr.map((v) => {
+                return (
+                  <>
+                    <li key={`gif-${crypto.randomUUID()}`}>
+                      <img src={v.images.original.url} />
+                    </li>
+                  </>
+                )
+              })
+        }
+      </ul>
+  )
 }
 
 export default GifContainer
