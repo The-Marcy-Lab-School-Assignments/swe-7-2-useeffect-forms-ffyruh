@@ -31,13 +31,12 @@ const GifContainer = ({ searchTerm }) => {
 
   return (
     <div className='ul-container'>
-      <ul>
         {
-          (gifsArr !== defaultGifs) ? <></>
-          : <li key='errorMsg'>
-              <h1>Sorry, the GIPHY API is not working, but here are some cats</h1>
-            </li>
+          (gifsArr === defaultGifs)
+          ? <h1>Sorry, the GIPHY API is not working, but here are some cats</h1>
+          : <></>
         }
+      <ul>
         {
           (gifsArr.length === 0)
             ? 'loading'

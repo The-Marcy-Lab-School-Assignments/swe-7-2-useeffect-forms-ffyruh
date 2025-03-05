@@ -2,7 +2,7 @@ const colors = {
   black: 'navbar-inverse',
   white: 'navbar-default'
 }
-import giphyLogo from '../../public/giphy_logo.png';
+import giphyLogo from '/giphy_logo.png';
 
 const NavBar = ({ color, title }) => {
   return (
